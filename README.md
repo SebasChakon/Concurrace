@@ -1,4 +1,4 @@
-# ConcurRace – Sistemas Distribuidos
+# Concurrace – Sistemas Distribuidos
 
 > A fast-paced, browser-based educational game where players master the classic problems of **concurrency** in distributed systems — race conditions, deadlocks, starvation, and more. Built for university-level students who want to learn while actually having fun.
 
@@ -106,7 +106,7 @@ Open index.html in your browser. That's it.
 
 **Option B — Clone and run:**
 ```bash
-git clone https://github.com/SebasChakon/concurrace.git
+git clone https://github.com/SebasChakon/Concurrace.git
 cd concurrace
 open index.html        # macOS
 start index.html       # Windows
