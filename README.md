@@ -1,4 +1,4 @@
-# 🎮 ConcurRace – Sistemas Distribuidos
+# ConcurRace – Sistemas Distribuidos
 
 > A fast-paced, browser-based educational game where players master the classic problems of **concurrency** in distributed systems — race conditions, deadlocks, starvation, and more. Built for university-level students who want to learn while actually having fun.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 About
+## About
 
 ConcurRace turns one of the most conceptually dense topics in distributed systems — concurrent access conflicts — into an engaging, arcade-style quiz experience. Players race through three levels of increasing challenge, earning points for correctly identifying and understanding concurrency problems.
 
@@ -14,7 +14,7 @@ No frameworks. No dependencies. Just HTML, CSS, and vanilla JS — open the file
 
 ---
 
-## 🕹️ Gameplay
+## Gameplay
 
 Three levels, one goal: prove you understand what happens when processes fight over shared resources.
 
@@ -26,7 +26,7 @@ At the end, a results screen breaks down your score by level and gives a qualita
 
 ---
 
-## 📚 Topics Covered
+## Topics Covered
 
 | Concept | Description |
 |---|---|
@@ -44,7 +44,7 @@ At the end, a results screen breaks down your score by level and gives a qualita
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -56,7 +56,7 @@ At the end, a results screen breaks down your score by level and gives a qualita
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 concurrace/
@@ -90,7 +90,7 @@ concurrace/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -115,7 +115,7 @@ xdg-open index.html   # Linux
 
 ---
 
-## 🏆 Scoring
+## Scoring
 
 | Level | Max Points | Mechanism |
 |---|---|---|
@@ -128,32 +128,14 @@ xdg-open index.html   # Linux
 
 | Score | Rating |
 |---|---|
-| 90 – 100 | 🏆 Concurrency Master |
-| 70 – 89 | 🎯 Great Performance |
-| 50 – 69 | 📚 Good Attempt |
-| 0 – 49 | 💡 Keep Practicing |
+| 90 – 100 | Concurrency Master |
+| 70 – 89 | Great Performance |
+| 50 – 69 | Good Attempt |
+| 0 – 49 | Keep Practicing |
 
 ---
 
-## 🗺️ Roadmap
-
-- [x] Core game loop (3 levels)
-- [x] Scoring system with per-level breakdown
-- [x] Randomized question/answer order on each playthrough
-- [x] Feedback and explanations on every answer
-- [x] Responsive design
-- [ ] Timer mode for extra challenge
-- [ ] Difficulty selector (Easy / Normal / Hard)
-- [ ] More topics: synchronization primitives, distributed locks, consensus
-- [ ] Leaderboard with local storage persistence
-- [ ] Export results as PDF study summary
-
----
-
-## 📄 License
+## License
 
 MIT — free to use, modify, and distribute.
 
----
-
-*Built as part of the Distributed Systems course — Universidad. Made with vanilla web technologies and a lot of ☕.*
