@@ -1,0 +1,36 @@
+<div id="screen-lvl1" class="screen">
+  <div class="content">
+
+    <div class="progress-wrap">
+      <div class="progress-fill" id="prog1" style="width:0%"></div>
+    </div>
+
+    <div class="section-title">Nivel 01 / 03</div>
+    <h2 class="section-heading">Relacionar conceptos</h2>
+    <p class="section-desc">
+      Selecciona un concepto de la izquierda y luego su categoría correspondiente
+      en la derecha. Empareja los 6 pares correctamente.
+    </p>
+
+    <div class="match-area">
+      <div>
+        <div class="match-col-title">Concepto</div>
+        <div id="concepts-list"></div>
+      </div>
+      <div>
+        <div class="match-col-title">Categoría / Problema</div>
+        <div id="categories-list"></div>
+      </div>
+    </div>
+
+    <div id="feedback1" class="feedback-msg"></div>
+
+    <div class="btn-row">
+      <span id="lvl1-score-info" class="score-info"></span>
+      <button id="btn-next1" class="btn btn-next" onclick="goLevel2()" style="display:none;">
+        Siguiente nivel →
+      </button>
+    </div>
+
+  </div>
+</div>

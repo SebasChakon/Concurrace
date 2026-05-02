@@ -1,0 +1,97 @@
+#screen-start {
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.hero { text-align: center; max-width: 680px; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+.hero h1 .highlight  { color: var(--accent); }
+.hero h1 .highlight2 { color: var(--accent2); }
+
+.hero-sub  { font-size: 1rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 300; }
+.hero-desc { color: var(--muted); font-size: 0.85rem; margin-bottom: 2.5rem; line-height: 1.7; }
+
+.levels-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.level-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+.level-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.level-card:nth-child(1)::before { background: var(--accent); }
+.level-card:nth-child(2)::before { background: var(--accent2); }
+.level-card:nth-child(3)::before { background: var(--accent3); }
+
+.level-num { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 2px; color: var(--muted); margin-bottom: 0.5rem; }
+.level-card h3 { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.3rem; }
+.level-card p  { font-size: 0.75rem; color: var(--muted); line-height: 1.5; }
+
+.btn-play {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 1rem 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-play::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-play:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.35); }
+.btn-play:hover::after { opacity: 1; }
+.btn-play:active { transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .levels-preview { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+}

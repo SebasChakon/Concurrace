@@ -1,0 +1,79 @@
+.question-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.q-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.q-text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.opt-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.5;
+  transition: all 0.2s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.opt-btn:hover { border-color: var(--accent3); background: rgba(124,58,237,0.08); }
+
+.opt-btn .opt-letter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent3);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.opt-btn.correct-opt             { border-color: var(--green); background: rgba(16,185,129,0.12); pointer-events: none; }
+.opt-btn.correct-opt .opt-letter { color: var(--green); }
+.opt-btn.wrong-opt               { border-color: var(--red);   background: rgba(239,68,68,0.1);   pointer-events: none; }
+.opt-btn.wrong-opt .opt-letter   { color: var(--red); }
+.opt-btn.disabled                { pointer-events: none; opacity: 0.6; }
+
+.q-feedback {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  display: none;
+}
+.q-feedback.show     { display: block; }
+.q-feedback.ok       { background: rgba(16,185,129,0.1); border-left: 3px solid var(--green); color: var(--text); }
+.q-feedback.err      { background: rgba(239,68,68,0.08); border-left: 3px solid var(--red);   color: var(--text); }
+.q-feedback strong   { color: var(--green); }
+.q-feedback.err strong { color: var(--red); }
+
+@media (max-width: 600px) {
+  .options-grid { grid-template-columns: 1fr; }
+}

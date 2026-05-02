@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConcurRace – Sistemas Distribuidos</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/start.css">
+  <link rel="stylesheet" href="css/level1.css">
+  <link rel="stylesheet" href="css/level2.css">
+  <link rel="stylesheet" href="css/level3.css">
+  <link rel="stylesheet" href="css/end.css">
+</head>
+<body>
+
+  <header id="game-header" class="game-header" style="display:none;">
+    <div class="logo">Concur<span>Race</span></div>
+    <div id="level-badge" class="level-indicator pulse">NIVEL 01</div>
+    <div class="score-bar">
+      <div class="score-item">Puntos: <strong id="hdr-score">0</strong></div>
+      <div class="score-item">Correctas: <strong id="hdr-correct">0</strong></div>
+    </div>
+  </header>
+
+  <!-- Pantalla de inicio -->
+  <div id="screen-start" class="screen active">
+    <div class="hero">
+      <div class="hero-badge">Sistemas Distribuidos · Concurrencia</div>
+      <h1><span class="highlight">Concur</span><span class="highlight2">Race</span></h1>
+      <p class="hero-sub">El juego de los procesos en conflicto</p>
+      <p class="hero-desc">
+        Domina los problemas clásicos de la concurrencia: condiciones de carrera,<br>
+        deadlocks, inanición y más. ¿Puedes sincronizar tus conocimientos?
+      </p>
+      <div class="levels-preview">
+        <div class="level-card">
+          <div class="level-num">NIVEL 01</div>
+          <h3>Relacionar conceptos</h3>
+          <p>Une cada problema de concurrencia con su categoría correcta</p>
+        </div>
+        <div class="level-card">
+          <div class="level-num">NIVEL 02</div>
+          <h3>Definiciones</h3>
+          <p>Empareja términos técnicos con sus definiciones precisas</p>
+        </div>
+        <div class="level-card">
+          <div class="level-num">NIVEL 03</div>
+          <h3>Preguntas</h3>
+          <p>Responde situaciones reales de sistemas concurrentes</p>
+        </div>
+      </div>
+      <button class="btn-play" onclick="startGame()">▶ INICIAR</button>
+    </div>
+  </div>
+
+  <!-- Nivel 1 -->
+  <div id="screen-lvl1" class="screen">
+    <div class="content">
+      <div class="progress-wrap"><div class="progress-fill" id="prog1" style="width:0%"></div></div>
+      <div class="section-title">Nivel 01 / 03</div>
+      <h2 class="section-heading">Relacionar conceptos</h2>
+      <p class="section-desc">
+        Selecciona un concepto de la izquierda y luego su categoría correspondiente
+        en la derecha. Empareja los 6 pares correctamente.
+      </p>
+      <div class="match-area">
+        <div>
+          <div class="match-col-title">Concepto</div>
+          <div id="concepts-list"></div>
+        </div>
+        <div>
+          <div class="match-col-title">Categoría / Problema</div>
+          <div id="categories-list"></div>
+        </div>
+      </div>
+      <div id="feedback1" class="feedback-msg"></div>
+      <div class="btn-row">
+        <span id="lvl1-score-info" class="score-info"></span>
+        <button id="btn-next1" class="btn btn-next" onclick="goLevel2()" style="display:none;">Siguiente nivel →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nivel 2 -->
+  <div id="screen-lvl2" class="screen">
+    <div class="content">
+      <div class="progress-wrap"><div class="progress-fill" id="prog2" style="width:33%"></div></div>
+      <div class="section-title">Nivel 02 / 03</div>
+      <h2 class="section-heading">Unir palabras con su significado</h2>
+      <p class="section-desc">
+        Selecciona un término del banco de palabras y luego haz clic en su
+        definición correspondiente para emparejarlos.
+      </p>
+      <div class="drag-wrap">
+        <div class="word-bank">
+          <h4>Banco de términos</h4>
+          <div id="word-chips"></div>
+        </div>
+        <div>
+          <div class="def-col-title">Definiciones</div>
+          <div class="def-list" id="def-list"></div>
+        </div>
+      </div>
+      <div id="feedback2" class="feedback-msg"></div>
+      <div class="btn-row">
+        <span id="lvl2-score-info" class="score-info"></span>
+        <button id="btn-next2" class="btn btn-next" onclick="goLevel3()" style="display:none;">Siguiente nivel →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nivel 3 -->
+  <div id="screen-lvl3" class="screen">
+    <div class="content">
+      <div class="progress-wrap"><div class="progress-fill" id="prog3" style="width:66%"></div></div>
+      <div class="section-title">Nivel 03 / 03</div>
+      <h2 class="section-heading">Preguntas de concurrencia</h2>
+      <p class="section-desc">
+        Lee cada situación y selecciona la respuesta correcta.
+        Tienes una sola oportunidad por pregunta.
+      </p>
+      <div id="questions-container"></div>
+      <div class="btn-row" id="lvl3-btn-row" style="display:none;">
+        <span id="lvl3-score-info" class="score-info"></span>
+        <button class="btn btn-next" onclick="goEnd()">Ver resultados →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pantalla de resultados -->
+  <div id="screen-end" class="screen">
+    <div class="result-card">
+      <div class="result-icon" id="end-icon">🏆</div>
+      <div class="result-title" id="end-title">¡Misión completada!</div>
+      <div class="result-sub">Resultados de tu partida</div>
+      <div class="score-grid">
+        <div class="score-box"><div class="sb-num" id="res-lvl1">0</div><div class="sb-label">Puntos<br>Nivel 1</div></div>
+        <div class="score-box"><div class="sb-num" id="res-lvl2">0</div><div class="sb-label">Puntos<br>Nivel 2</div></div>
+        <div class="score-box"><div class="sb-num" id="res-lvl3">0</div><div class="sb-label">Puntos<br>Nivel 3</div></div>
+      </div>
+      <div class="total-score">
+        <div class="ts-label">Puntaje total</div>
+        <div><span class="ts-num" id="end-total">0</span><span class="ts-denom">/ 100</span></div>
+      </div>
+      <div class="rating-text" id="end-rating"></div>
+      <button class="btn btn-restart" onclick="restartGame()">↺ JUGAR DE NUEVO</button>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>  
+  <script src="js/state.js"></script> 
+  <script src="js/level1.js"></script> 
+  <script src="js/level2.js"></script>  
+  <script src="js/level3.js"></script>  
+  <script src="js/end.js"></script>     
+  <script src="js/main.js"></script>   
+
+</body>
+</html>

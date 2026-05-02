@@ -1,0 +1,87 @@
+.drag-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.word-bank {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.word-bank h4 {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* ── Word chips ── */
+.word-chip {
+  display: inline-block;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.9rem;
+  margin: 0.25rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  transition: all 0.2s;
+  user-select: none;
+  color: var(--accent);
+}
+.word-chip:hover    { border-color: var(--accent); background: rgba(0,212,255,0.08); }
+.word-chip.selected { background: rgba(0,212,255,0.15); border-color: var(--accent); }
+.word-chip.used     { opacity: 0.3; pointer-events: none; }
+
+.def-col-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.def-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.def-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+.def-item:hover           { border-color: var(--accent2); }
+.def-item.selected-target { border-color: var(--accent2); background: rgba(255,107,53,0.06); }
+.def-item.correct         { border-color: var(--green);   background: rgba(16,185,129,0.1);  cursor: default; }
+.def-item.wrong-target    { border-color: var(--red);     background: rgba(239,68,68,0.08);  animation: shake 0.4s; }
+
+.def-answer {
+  min-width: 90px;
+  background: var(--surface2);
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+.def-answer.filled      { border-style: solid; border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.08); }
+.def-answer.correct-ans { border-color: var(--green); color: var(--green); background: rgba(16,185,129,0.1); }
+
+@media (max-width: 600px) {
+  .drag-wrap { grid-template-columns: 1fr; }
+}
